@@ -78,7 +78,6 @@ default search is **A***
 
 #### View from GUI Visualation :
 
-
+![gui](https://github.com/aallali/42-N-Puzzle/blob/main/docs/gui.PNG)
 #### View from Terminal :
-
-
+![terminal](https://raw.githubusercontent.com/aallali/42-N-Puzzle/main/docs/terminal.PNG?token=AKWFYD6GOMASIDHHVVW5ZCLAY52ZC)
