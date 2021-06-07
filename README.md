@@ -76,4 +76,9 @@ default search is **A***
 #### Ready command for terminal :
 `py -2 .\generator.py -s -i 1000 3  > test && cls && py -3 npuzzle.py .\test -f conflicts -v `
 
+#### View from GUI Visualation :
+
+
+#### View from Terminal :
+
 
