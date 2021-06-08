@@ -1,5 +1,5 @@
 import argparse
-from tools.heuristics.heuristics import KV as heuristics
+from .heuristics import KV
 
 
 def is_valid_input(data):
@@ -27,7 +27,7 @@ def get_input():
     parser = argparse.ArgumentParser(description='n-puzzle @ 42 aallali/helamri')
     parser.add_argument('-g', action='store_true', help='greedy search')
     parser.add_argument('-u', action='store_true', help='uniform-cost search')
-    parser.add_argument('-f', help='heuristic function', choices=list(heuristics.keys()), default='conflicts')
+    parser.add_argument('-f', help='heuristic function', choices=list(KV.keys()), default='conflicts')
     parser.add_argument('-s', help='snail', choices=['zero_first','zero_last', 'snail'], default='snail')
     parser.add_argument('-v', action='store_true', help='gui visualizer')
     parser.add_argument('file', help='input file', type=argparse.FileType('r'))
