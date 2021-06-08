@@ -79,7 +79,9 @@ default search is **A***
 `py -2 .\generator.py -s -i 1000 3  > test && cls && py -3 .\npuzzle.py .\test -f conflicts -v `
 
 #### View from GUI Visualation :
-
 ![gui](https://raw.githubusercontent.com/aallali/42-N-Puzzle/main/docs/gui.PNG?token=AKWFYDYMTX62IUOQIZBRXW3AZDN5O)
+#### GIF from GUI Visualation :
+![gui](https://raw.githubusercontent.com/aallali/42-N-Puzzle/main/docs/gui-gif.gif?token=AKWFYDYMDK73KJWOB625PYTAZDPCY)
+
 #### View from Terminal :
 ![terminal](https://raw.githubusercontent.com/aallali/42-N-Puzzle/main/docs/terminal2-new.PNG?token=AKWFYD4K5N4LT7MMDUCLRXTAZDN3Y)
