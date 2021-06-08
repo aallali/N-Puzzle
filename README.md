@@ -2,7 +2,7 @@
 
 ```
 usage: solver.py [-h] [-g] [-u]
-                 [-f {hamming,gaschnig,manhattan,conflicts}]
+                 [-f {hamming,gaschnig,manhattan,conflicts, euclidean}]
                  [-s {zero_first,zero_last,snail}] [-v]
                  file
 
@@ -65,6 +65,8 @@ default search is **A***
 
 `-f conflicts` linear conflicts usually more informed than manhattan distance
 
+`-f euclidean` euclidean distance heuristic (not good as manhattan)
+
 
 #### miscellaneous:
 `-g` greedy search: ignores the `g(n)` in **A*** formula `f(n) = g(n) + h(n)`, quickly finds a **suboptimal** solution
@@ -73,8 +75,8 @@ default search is **A***
 
 `-v` replay solution steps in graphical visualizer
 
-#### Ready command for terminal :
-`py -2 .\generator.py -s -i 1000 3  > test && cls && py -3 npuzzle.py .\test -f conflicts -v `
+#### Ready command for terminal (windows):
+`py -2 .\generator.py -s -i 1000 3  > test && cls && py -3 .\npuzzle.py .\test -f conflicts -v `
 
 #### View from GUI Visualation :
 
