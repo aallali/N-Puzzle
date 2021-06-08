@@ -46,7 +46,7 @@ def visualize(array, dim):
 	if dim == 3:
 		wait = 0.4
 	elif dim == 4:
-		wait = 0.08
+		wait = 0.2
 	else:
 		wait = 0.05
 	SIZE = 60 + dim * 5
