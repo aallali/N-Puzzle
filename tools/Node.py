@@ -2,7 +2,7 @@ from .heuristics import heuristic
 
 
 class Node(object):
-	def __init__(self, curr_state, parent, action, pos, solved, g, u, h):
+	def __init__(self, curr_state, parent, action, pos, solved, g, u, h, ah):
 		self.state = curr_state
 		self.parent = parent
 		self.action = action
@@ -12,9 +12,9 @@ class Node(object):
 		self.candidate = [j for i in [[l for l in el] for el in curr_state] for j in i]
 		self.solved = [j for i in [[l for l in el] for el in solved] for j in i]
 		if u is not None:
-			self.heuristic = heuristic(self.candidate, self.solved, 'uniform_cost')
-
-		self.heuristic = heuristic(self.candidate, self.solved, h)
+			self.heuristic = 0
+		else:
+			self.heuristic = heuristic(self.candidate, self.solved, h) * ah
 
 	def __lt__(self, other):
 		# it's straightforward to see why this heuristic dominates manhattan distance, because for all n where n represents a state,
