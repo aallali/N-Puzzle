@@ -3,7 +3,7 @@
 ```
 usage: solver.py [-h] [-g] [-u]
                  [-f {hamming, gaschnig, manhattan, conflicts, euclidean}]
-                 [-s {zero_first,zero_last,snail}] [-v]
+                 [-s {zero_first,zero_last,snail}] [--fast] [-v]
                  file
 
 n-puzzle @ 42 aallali
@@ -20,6 +20,7 @@ optional arguments:
   -s {zero_first,zero_last,snail}
                         solved state
   -v                    gui visualizer
+  --fast                use super fast search (but more moves)
 ```
 
 #### search:
@@ -73,6 +74,8 @@ default search is **A***
 `-u` uniform cost search: discards the `h(n)` in **A*** formula (turns off heuristics and becomes dijkstra's, slow)
 
 `-v` replay solution steps in graphical visualizer
+
+`--fast` use a faster search alogrithm but add more moves to goal
 
 #### Ready command for terminal (windows):
 `py -2 .\generator.py -s -i 1000 3  > test && cls && py -3 .\npuzzle.py .\test -f conflicts -v `
