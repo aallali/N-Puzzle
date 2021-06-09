@@ -6,7 +6,9 @@ from .Node import Node
 
 
 class Puzzle(object):
-	def __init__(self, init_state, goal_state, size, g, u, heuristic):
+
+	def __init__(self, init_state, goal_state, size, g, u, heuristic, fast_search=False):
+
 		self.init_state = []
 		self.goal_state = []
 		self.actions = deque()
@@ -14,13 +16,14 @@ class Puzzle(object):
 		self.heuristic = heuristic
 		self.g = g
 		self.u = u
+		self.augment_heuristic = 1 if fast_search is False else 4
 		tmp = []
-
 		for i in range(len(init_state)):
 			tmp.append(init_state[i])
 			if (i + 1) % size == 0:
 				self.init_state.append(tmp)
 				tmp = []
+
 		tmp = []
 		for i in range(len(goal_state)):
 			tmp.append(goal_state[i])
@@ -34,7 +37,7 @@ class Puzzle(object):
 					self.start_pos = (i, j)
 					break
 
-		self.start_node = Node(self.init_state, None, None, self.start_pos, self.goal_state, self.g, self.u, heuristic)
+		self.start_node = Node(self.init_state, None, None, self.start_pos, self.goal_state, self.g, self.u, heuristic, self.augment_heuristic)
 
 	def swap(self, curr_state, pos, direction):
 		temp = curr_state[pos[0]][pos[1]]
@@ -89,7 +92,8 @@ class Puzzle(object):
 					            self.goal_state,
 					            self.g,
 					            self.u,
-					            self.heuristic)
+					            self.heuristic,
+					            self.augment_heuristic)
 					heapq.heappush(pq, node)
 					count += 1
 
