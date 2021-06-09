@@ -1,4 +1,4 @@
-# n-puzzle @ 42 aallali
+# n-puzzle @ 1337/42 aallali
 
 ```
 usage: solver.py [-h] [-g] [-u]
