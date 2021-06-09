@@ -2,7 +2,7 @@
 
 ```
 usage: solver.py [-h] [-g] [-u]
-                 [-f {hamming,gaschnig,manhattan,conflicts, euclidean}]
+                 [-f {hamming, gaschnig, manhattan, conflicts, euclidean}]
                  [-s {zero_first,zero_last,snail}] [-v]
                  file
 
@@ -23,7 +23,6 @@ optional arguments:
 ```
 
 #### search:
-
 default search is **A***
 - fast and efficient
 - memory heavy
@@ -80,6 +79,7 @@ default search is **A***
 
 #### View from GUI Visualation :
 ![gui](https://raw.githubusercontent.com/aallali/42-N-Puzzle/main/docs/gui.PNG?token=AKWFYDYMTX62IUOQIZBRXW3AZDN5O)
+
 #### GIF from GUI Visualation :
 ![gui](https://raw.githubusercontent.com/aallali/42-N-Puzzle/main/docs/gui-gif.gif?token=AKWFYDYMDK73KJWOB625PYTAZDPCY)
 
