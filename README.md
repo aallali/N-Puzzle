@@ -103,4 +103,4 @@ default search is **A***
 ![gui](https://raw.githubusercontent.com/aallali/42-N-Puzzle/main/docs/gui-gif.gif?token=AKWFYDYMDK73KJWOB625PYTAZDPCY)
 
 #### View from Terminal :
-![terminal](https://raw.githubusercontent.com/aallali/42-N-Puzzle/main/docs/terminal3-new.PNG?token=AKWFYDZROXYR42U6HJNAEUTAZYKGM)
+![terminal](https://raw.githubusercontent.com/aallali/42-N-Puzzle/main/docs/terminal4-new.PNG?token=AKWFYDZPBHDFVWFPA57YCG3AZYKVY)
