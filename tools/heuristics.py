@@ -22,6 +22,8 @@ def heuristic_aux(x, y, x_g, y_g, name):
         return abs(x - x_g) + abs(y - y_g)
     elif name == 'euclidean':
         return np.sqrt((x - x_g) ** 2 + (y - y_g) ** 2)
+    elif name == 'diagonal':
+        return max(abs(x - x_g) , abs(y - y_g))
     elif name == 'uniform_cost':
         return 0
 
@@ -69,7 +71,7 @@ def heuristic(goal, state, name='euclidean'):
     h = 0
     if name == 'conflicts':
         h = np.sum([heuristic_aux(*coord_state[i], *coord_goal[i], 'manhattan') for i in range(size ** 2)])
-        return 2 * linear_conflicts(goal, state, size) + h * 2
+        return 2 * linear_conflicts(goal, state, size) + h
 
     h = np.sum([heuristic_aux(*coord_state[i], *coord_goal[i], name) for i in range(size ** 2)])
     return h
@@ -149,5 +151,6 @@ KV = {
     'gaschnig': True,
     'manhattan': True,
     'conflicts': True,
-    'euclidean': True
+    'euclidean': True,
+    'diagonal': True
 }

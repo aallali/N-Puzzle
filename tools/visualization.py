@@ -6,7 +6,7 @@ BLACK = (216, 227, 231)
 BG = (250, 243, 243)
 WHITE = (37, 150, 190)
 TILE = (37, 150, 190)
-SIZE = 60
+SIZE =  20
 
 
 def draw_tile(screen, x, y, color, full):
@@ -44,12 +44,12 @@ def visualize(array, dim):
 	global SIZE
 	wait = 0
 	if dim == 3:
-		wait = 0.4
+		wait = 0.3
 	elif dim == 4:
-		wait = 0.2
+		wait = 0.1
 	else:
 		wait = 0.05
-	SIZE = 60 + dim * 5
+	SIZE = 60 + dim * SIZE
 	x = dim * SIZE + 10
 
 	pygame.init()

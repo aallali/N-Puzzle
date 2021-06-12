@@ -97,11 +97,22 @@ class Puzzle(object):
 					heapq.heappush(pq, node)
 					count += 1
 
-		timestamp2 = time.time()
+		timestamp2 = time.time() # get the time diff from the start till we foud the solution
+
+		"""
+		loop through the last solution node parent tree to retreive states, and actions (moves)
+		"""
 		while curr_node:
 			if curr_node.action:
 				self.actions.appendleft(curr_node.action)
 				self.states.appendleft(curr_node.state)
 			curr_node = curr_node.parent
 
+		"""
+		return @params
+		actions 				= 'all moves taken to find the solution path'
+		states  				= 'all the puzzle states in the solution path'
+		maxOpenSet 				= 'or Complexity in size : the number of nodes that was opened in same time in RAM'
+		timestamp2 - timestamp1 = 'time diff from the start till we foud the solution'
+		"""
 		return self.actions, self.states, count, len(self.actions), maxOpenSet, timestamp2 - timestamp1

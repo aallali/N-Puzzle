@@ -7,9 +7,31 @@ from tools.solved_state import KV as states
 from tools.heuristics import KV
 import time
 from reprint import output
+import os
 
+def clearConsole():
+    command = 'clear'
+    if os.name in ('nt', 'dos'):  # If Machine is running on Windows, use cls
+        command = 'cls'
+    os.system(command)
+
+def print_hello():
+	head = """
+███╗   ██╗      ██████╗ ██╗   ██╗███████╗███████╗██╗     ███████╗
+████╗  ██║      ██╔══██╗██║   ██║╚══███╔╝╚══███╔╝██║     ██╔════╝
+██╔██╗ ██║█████╗██████╔╝██║   ██║  ███╔╝   ███╔╝ ██║     █████╗  
+██║╚██╗██║╚════╝██╔═══╝ ██║   ██║ ███╔╝   ███╔╝  ██║     ██╔══╝  
+██║ ╚████║      ██║     ╚██████╔╝███████╗███████╗███████╗███████╗
+╚═╝  ╚═══╝      ╚═╝      ╚═════╝ ╚══════╝╚══════╝╚══════╝╚══════╝
+	"""
+	msg = f"""{color('magenta2', head)}
+by: {color('cyan2', 'Abdellah Allali')} && {color('cyan2', 'Hamza Elamri')}
+	"""
+	print(msg)
+	return 
 if __name__ == "__main__":
-
+	clearConsole()
+	print_hello()	
 	g, u                = None, None
 	goal_state          = []
 	puzzle, size, args  = get_input()
@@ -24,36 +46,15 @@ if __name__ == "__main__":
 	print(color('red', '<=========================================================>'))
 	print(f"- Size of the puzzle : {color('blue2', str(size))} * {color('blue2', str(size))}\n")
 
-	if args.s == 'snail':
-		goal_state = states['snail'](size)
-
-	elif args.s == 'zero_first':
-		goal_state = states['zero_first'](size)
-
-	elif args.s == 'zero_last':
-		goal_state = states['zero_last'](size)
-
-	if args.f == 'manhattan':
-		heuristic = 'manhattan'
-
-	elif args.f == 'conflicts':
-		heuristic = 'conflicts'
-
-	elif args.f == 'gaschnig':
-		heuristic = 'gaschnig'
-
-	elif args.f == 'hamming':
-		heuristic = 'hamming'
-
-	elif args.f == 'euclidean':
-		heuristic = 'euclidean'
+	goal_state = states[args.s](size)
+	heuristic = args.f
 
 	if args.g == True:  # greedy Search
 		g = 0
 
 	if args.u == True:  # uniform Search
 		u = 0
-
+ 
 	# _is = [j for i in [[l for l in el] for el in init_state] for j in i]
 	# print(_is)
 	# _gs = [j for i in [[l for l in el] for el in goal_state] for j in i]
@@ -124,9 +125,9 @@ if __name__ == "__main__":
 
 	states = [[j for i in [[l for l in el] for el in tile] for j in i] for tile in states]
 
-	if args.v is False and args.vt != 0:
+	if args.v is False and args.t != '0':
 		alphabetic = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l']
-		print('- Moves replay :')
+		print('- Moves replay :\n')
 		with output(output_type='dict', sort_key=lambda x: 1) as output_lines:
 			for i in range(len(states)):
 				move =  ''
@@ -139,8 +140,8 @@ if __name__ == "__main__":
 				if actions[i] == 'LEFT':
 					move = color('green2', '← ' + actions[i])
 
-				output_lines['.Move'] = '         ' + move + ' '
-				output_lines['.Move N*'] = '       ' + f"{i + 1}/{len(actions)}\n"
+				output_lines['Move   '] = '       ' + move + ' '
+				output_lines['Move N°'] = '       ' + f"{i + 1}/{len(actions)}\n"
 				tmp = []
 				row = []
 				for j in range(len(states[i])):
@@ -158,12 +159,13 @@ if __name__ == "__main__":
 				for x in range(len(row)):
 					output_lines[alphabetic[x]] = '         ' + str(row[x])
 
-				time.sleep(float(args.vt))
-	states.insert(0, init_state)
+				time.sleep(float(args.t))
+	
 			# print(states[i])
 	"""
 		Visualtion if activated by flag -v
 	"""
 	if args.v:
 		from tools.visualization import visualize
+		states.insert(0, init_state)
 		visualize(states, size)
