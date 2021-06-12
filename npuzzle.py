@@ -126,6 +126,7 @@ if __name__ == "__main__":
 
 	if args.v is False and args.vt != 0:
 		alphabetic = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l']
+		print('- Moves replay :')
 		with output(output_type='dict', sort_key=lambda x: 1) as output_lines:
 			for i in range(len(states)):
 				move =  ''
