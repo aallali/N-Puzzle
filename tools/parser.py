@@ -26,13 +26,13 @@ def is_valid_input(data):
 
 
 def get_input():
-	parser = argparse.ArgumentParser(description='n-puzzle @ 42 aallali/helamri')
+	parser = argparse.ArgumentParser(description='n-puzzle @ 42 aallali')
 	parser.add_argument('-g', action='store_true', help='greedy search')
 	parser.add_argument('-u', action='store_true', help='uniform-cost search')
 	parser.add_argument('-f', help='heuristic function', choices=list(KV.keys()), default='conflicts')
 	parser.add_argument('-s', help='snail', choices=['zero_first', 'zero_last', 'snail'], default='snail')
 	parser.add_argument('-v', action='store_true', help='gui visualizer')
-	parser.add_argument('--vt', action='store', help='Solution replay on terminal, animation speed time value required (Disabled default)', default='0')
+	parser.add_argument('--vt', '-t', action='store', help='Solution replay on terminal, animation speed time value required (Disabled default)', default='0')
 	parser.add_argument('--fast', '-fs', action='store_true', help='fast search', default=False)
 	parser.add_argument('file', help='input file', type=argparse.FileType('r'))
 	args = parser.parse_args()

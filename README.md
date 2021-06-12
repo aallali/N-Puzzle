@@ -14,10 +14,11 @@
     # 
 
 ```
-usage: solver.py [-h] [-g] [-u]
-                 [-f {hamming, gaschnig, manhattan, conflicts, euclidean}]
-                 [-s {zero_first,zero_last,snail}] [--fast] [-v]
-                 file
+usage: npuzzle.py [-h] [-g] [-u]
+                  [-f {hamming,gaschnig,manhattan,conflicts,euclidean}]
+                  [-s {zero_first,zero_last,snail}] [-v] [--vt VT]
+                  [--fast]
+                  file
 
 n-puzzle @ 42 aallali
 
@@ -28,12 +29,14 @@ optional arguments:
   -h, --help            show this help message and exit
   -g                    greedy search
   -u                    uniform-cost search
-  -f {hamming,gaschnig,manhattan,conflicts}
+  -f {hamming,gaschnig,manhattan,conflicts,euclidean}
                         heuristic function
   -s {zero_first,zero_last,snail}
-                        solved state
+                        snail
   -v                    gui visualizer
-  --fast                use super fast search (but more moves)
+  --vt VT, -t VT        Solution replay on terminal, animation speed
+                        time value required (Disabled default)
+  --fast, -fs           fast search (multiply H value by 4)
 ```
 
 #### search:
@@ -100,4 +103,4 @@ default search is **A***
 ![gui](https://raw.githubusercontent.com/aallali/42-N-Puzzle/main/docs/gui-gif.gif?token=AKWFYDYMDK73KJWOB625PYTAZDPCY)
 
 #### View from Terminal :
-![terminal](https://raw.githubusercontent.com/aallali/42-N-Puzzle/main/docs/terminal2-new.PNG?token=AKWFYD4K5N4LT7MMDUCLRXTAZDN3Y)
+![terminal](https://raw.githubusercontent.com/aallali/42-N-Puzzle/main/docs/terminal3-new.PNG?token=AKWFYD4K5N4LT7MMDUCLRXTAZDN3Y)

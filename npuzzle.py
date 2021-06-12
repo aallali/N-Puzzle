@@ -105,7 +105,6 @@ if __name__ == "__main__":
 	print(color('red', '<=========================================================>'))
 
 	print(color('green2', "- Puzzle Solved :)"))
-	print(actions)
 	print(f"- Total Nodes Opened {color('yellow', '(Complexity in time)')}     : {color('blue2', str(count))}")
 	print(f"- Max opened in RAM {color('yellow', '(Complexity in size)')}      : {color('blue2', str(maxopen))}")
 	print(f"- Number of moves required                    : {color('blue2', str(len(actions)))}")
