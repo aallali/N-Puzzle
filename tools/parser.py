@@ -32,6 +32,7 @@ def get_input():
 	parser.add_argument('-f', help='heuristic function', choices=list(KV.keys()), default='conflicts')
 	parser.add_argument('-s', help='snail', choices=['zero_first', 'zero_last', 'snail'], default='snail')
 	parser.add_argument('-v', action='store_true', help='gui visualizer')
+	parser.add_argument('--vt', action='store', help='Solution replay on terminal, animation speed time value required (Disabled default)', default='0')
 	parser.add_argument('--fast', '-fs', action='store_true', help='fast search', default=False)
 	parser.add_argument('file', help='input file', type=argparse.FileType('r'))
 	args = parser.parse_args()

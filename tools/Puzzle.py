@@ -59,17 +59,17 @@ class Puzzle(object):
 
 	def solve_A_STAR(self):
 		move_directions = {
-			(0, 1): 'LEFT',
-			(1, 0): 'UP',
-			(-1, 0): 'DOWN',
-			(0, -1): 'RIGHT'
+			(0, 1): 'RIGHT',
+			(1, 0): 'DOWN',
+			(-1, 0): 'UP',
+			(0, -1): 'LEFT'
 		}
 		visited = set()
 		pq = []
 		heapq.heappush(pq, self.start_node)
 		count = 0
 		timestamp1 = time.time()
-		maxOpenSet = 1
+		maxOpenSet = 0
 		while pq:
 			maxOpenSet = max(maxOpenSet, len(pq))
 			curr_node = heapq.heappop(pq)
@@ -98,7 +98,6 @@ class Puzzle(object):
 					count += 1
 
 		timestamp2 = time.time()
-
 		while curr_node:
 			if curr_node.action:
 				self.actions.appendleft(curr_node.action)

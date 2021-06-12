@@ -16,7 +16,21 @@ class Node(object):
 		else:
 			self.heuristic = heuristic(self.candidate, self.solved, h) * ah
 
+	# compare function <
 	def __lt__(self, other):
 		# it's straightforward to see why this heuristic dominates manhattan distance, because for all n where n represents a state,
 		# manhattanDistance(n) <= manhattanDistance(n) + linearConflict(n), where linearConflict(n) is an integer >= 0.
 		return self.path_cost + self.heuristic < other.path_cost + other.heuristic
+	#
+	# # compare function <=
+	# def __le__(self, other):
+	# 	return self.path_cost + self.heuristic <= other.path_cost + other.heuristic
+	#
+	# # compare function >=
+	# def __ge__(self, other):
+	# 	return self.path_cost + self.heuristic >= other.path_cost + other.heuristic
+	#
+	# # compare function >
+	# def __gt__(self, other):
+	# 	return self.path_cost + self.heuristic > other.path_cost + other.heuristic
+	#
