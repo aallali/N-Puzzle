@@ -1,22 +1,21 @@
-# n-puzzle 1337 @ aallali 
-
-    #   ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄           ▄           ▄▄▄▄▄▄▄▄▄▄▄ ▄           ▄▄▄▄▄▄▄▄▄▄▄ 
-    #  ▐░░░░░░░░░░░▐░░░░░░░░░░░▐░▌         ▐░▌         ▐░░░░░░░░░░░▐░▌         ▐░░░░░░░░░░░▌
-    #  ▐░█▀▀▀▀▀▀▀█░▐░█▀▀▀▀▀▀▀█░▐░▌         ▐░▌         ▐░█▀▀▀▀▀▀▀█░▐░▌          ▀▀▀▀█░█▀▀▀▀ 
-    #  ▐░▌       ▐░▐░▌       ▐░▐░▌         ▐░▌         ▐░▌       ▐░▐░▌              ▐░▌     
-    #  ▐░█▄▄▄▄▄▄▄█░▐░█▄▄▄▄▄▄▄█░▐░▌         ▐░▌         ▐░█▄▄▄▄▄▄▄█░▐░▌              ▐░▌     
-    #  ▐░░░░░░░░░░░▐░░░░░░░░░░░▐░▌         ▐░▌         ▐░░░░░░░░░░░▐░▌              ▐░▌     
-    #  ▐░█▀▀▀▀▀▀▀█░▐░█▀▀▀▀▀▀▀█░▐░▌         ▐░▌         ▐░█▀▀▀▀▀▀▀█░▐░▌              ▐░▌     
-    #  ▐░▌       ▐░▐░▌       ▐░▐░▌         ▐░▌         ▐░▌       ▐░▐░▌              ▐░▌     
-    #  ▐░▌       ▐░▐░▌       ▐░▐░█▄▄▄▄▄▄▄▄▄▐░█▄▄▄▄▄▄▄▄▄▐░▌       ▐░▐░█▄▄▄▄▄▄▄▄▄ ▄▄▄▄█░█▄▄▄▄ 
-    #  ▐░▌       ▐░▐░▌       ▐░▐░░░░░░░░░░░▐░░░░░░░░░░░▐░▌       ▐░▐░░░░░░░░░░░▐░░░░░░░░░░░▌
-    #   ▀         ▀ ▀         ▀ ▀▀▀▀▀▀▀▀▀▀▀ ▀▀▀▀▀▀▀▀▀▀▀ ▀         ▀ ▀▀▀▀▀▀▀▀▀▀▀ ▀▀▀▀▀▀▀▀▀▀▀ 
-    # 
+# n-puzzle 1337 @ aallali
 
 ```
+███╗   ██╗      ██████╗ ██╗   ██╗███████╗███████╗██╗     ███████╗
+████╗  ██║      ██╔══██╗██║   ██║╚══███╔╝╚══███╔╝██║     ██╔════╝
+██╔██╗ ██║█████╗██████╔╝██║   ██║  ███╔╝   ███╔╝ ██║     █████╗  
+██║╚██╗██║╚════╝██╔═══╝ ██║   ██║ ███╔╝   ███╔╝  ██║     ██╔══╝  
+██║ ╚████║      ██║     ╚██████╔╝███████╗███████╗███████╗███████╗
+╚═╝  ╚═══╝      ╚═╝      ╚═════╝ ╚══════╝╚══════╝╚══════╝╚══════╝
+by : 
+┌─┐┌┐ ┌┬┐┌─┐┬  ┬  ┌─┐┬ ┬  ┌─┐┬  ┬  ┌─┐┬  ┬
+├─┤├┴┐ ││├┤ │  │  ├─┤├─┤  ├─┤│  │  ├─┤│  │
+┴ ┴└─┘─┴┘└─┘┴─┘┴─┘┴ ┴┴ ┴  ┴ ┴┴─┘┴─┘┴ ┴┴─┘┴
+```
+```
 usage: npuzzle.py [-h] [-g] [-u]
-                  [-f {hamming,gaschnig,manhattan,conflicts,euclidean}]
-                  [-s {zero_first,zero_last,snail}] [-v] [--vt VT]
+                  [-f {hamming,gaschnig,manhattan,conflicts,euclidean, diagonal}]
+                  [-s {zero_first,zero_last,snail}] [-v] [-t]
                   [--fast]
                   file
 
@@ -34,7 +33,7 @@ optional arguments:
   -s {zero_first,zero_last,snail}
                         snail
   -v                    gui visualizer
-  --vt VT, -t VT        Solution replay on terminal, animation speed
+  -t                    Solution replay on terminal, animation speed
                         time value required (Disabled default)
   --fast, -fs           fast search (multiply H value by 4)
 ```
@@ -73,6 +72,7 @@ default search is **A***
 ```
 
 #### heuristics:
+
 `-f hamming` hamming distance aka "tiles out of place"
 
 `-f gaschnig` performs better than hamming distance
@@ -83,13 +83,18 @@ default search is **A***
 
 `-f euclidean` euclidean distance heuristic (not good as manhattan)
 
+`-f diagonal` euclidean distance heuristic (not good as manhattan)
+
 
 #### miscellaneous:
+
 `-g` greedy search: ignores the `g(n)` in **A*** formula `f(n) = g(n) + h(n)`, quickly finds a **suboptimal** solution
 
 `-u` uniform cost search: discards the `h(n)` in **A*** formula (turns off heuristics and becomes dijkstra's, slow)
 
 `-v` replay solution steps in graphical visualizer
+
+`-t` replay solution steps in terminal with colorized outprint
 
 `--fast` use a faster search alogrithm but add more moves to goal
 

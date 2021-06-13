@@ -14,8 +14,8 @@ class Puzzle(object):
 		self.actions = deque()
 		self.states = deque()
 		self.heuristic = heuristic
-		self.g = g
-		self.u = u
+		self.g = g # greedy search : f = 0 + h(n)
+		self.u = u # uniform search : f = g + 0
 		self.augment_heuristic = 1 if fast_search is False else 4
 		tmp = []
 		for i in range(len(init_state)):
@@ -77,6 +77,10 @@ class Puzzle(object):
 				break
 			if str(curr_node.state) in visited or str(curr_node.state) in pq:
 				continue
+
+			"""
+			visited == closed set == to register all visited states to avoid infinity loop
+			"""
 			visited.add(str(curr_node.state))
 
 			for direction in move_directions.keys():
@@ -94,6 +98,9 @@ class Puzzle(object):
 					            self.u,
 					            self.heuristic,
 					            self.augment_heuristic)
+					"""
+					push to Queue
+					"""
 					heapq.heappush(pq, node)
 					count += 1
 
