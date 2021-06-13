@@ -1,5 +1,16 @@
-import numpy as np
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    heuristics.py                                      :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: aallali <aallali@student.1337.ma>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/06/13 11:06:14 by aallali           #+#    #+#              #
+#    Updated: 2021/06/13 11:06:20 by aallali          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
+import numpy as np
 
 def heuristic_aux(x, y, x_g, y_g, name):
     """Admissible heuristics
