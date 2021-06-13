@@ -1,13 +1,27 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    npuzzle.py                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: aallali <aallali@student.1337.ma>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/06/13 11:05:37 by aallali           #+#    #+#              #
+#    Updated: 2021/06/13 11:05:42 by aallali          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 import sys
-from tools.parser import get_input
-from tools.is_solvable import is_solvable
-from tools.Puzzle import Puzzle
-from tools.colors import color
-from tools.solved_state import KV as states
-from tools.heuristics import KV
+import os
 import time
 from reprint import output
-import os
+
+from tools.solved_state import KV as states
+from tools.is_solvable import is_solvable
+from tools.parser import get_input
+from tools.heuristics import KV
+from tools.Puzzle import Puzzle
+from tools.colors import color
+
 
 def clearConsole():
     command = 'clear'
@@ -25,7 +39,7 @@ def print_hello():
 ╚═╝  ╚═══╝      ╚═╝      ╚═════╝ ╚══════╝╚══════╝╚══════╝╚══════╝
 	"""
 	msg = f"""{color('magenta2', head)}
-by: {color('cyan2', 'Abdellah Allali')} && {color('cyan2', 'Hamza Elamri')}
+by: {color('cyan2', 'Abdellah Allali')}
 	"""
 	print(msg)
 	return 
